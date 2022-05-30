@@ -6,7 +6,7 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:10 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/05/30 23:53:05 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/05/31 00:01:43 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ char	 *get_next_line(int fd)
 		printf("%s\n", buff);
 		i++;
 	}
-	return ("hello welcome134444234");
+	return ("hello welcome134444234sadsa");
 }	
