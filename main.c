@@ -6,7 +6,7 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:03:57 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/05/30 23:12:23 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/04 17:11:06 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	main(void)
 {
 	int	fd;
-
+	
+	printf("hello");
 	fd = open("hello",O_RDONLY);
 	get_next_line(fd);	
 	return (0);
