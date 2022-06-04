@@ -6,7 +6,7 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:10 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/05/31 00:20:23 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/04 18:57:03 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 char	 *get_next_line(int fd)
 {
-	char	*buff;
-	int	readbuffer;
+	t_line	test;
 	int	i;
+	int	readbuffer;
+	i = 0;	
+	test.buffer = malloc(10);
 
-	i = 0;
-	buff = malloc(sizeof(char) * 6);
-	if (fd < 0)
+	test.buff1 = malloc(sizeof(char) * 6);
+	if (fd < 0 || !test.buff1)
 		return (NULL);
 	while (i < 10)
 	{
-		readbuffer = read(fd, buff, 5);
+		readbuffer = read(fd, test.buff1, BUFFER_SIZE);
 		printf("%d\n", readbuffer);
-		printf("%s\n", buff);
+		printf("%s\n", test.buff1);
 		i++;
 	}
 	return ("hello welcome");
