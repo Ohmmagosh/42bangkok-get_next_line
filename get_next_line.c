@@ -6,11 +6,21 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:10 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/06/05 15:05:10 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/06 01:21:22 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
@@ -69,9 +79,35 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return ("hello welcome");
 } */
 
+char	*get_next_line(int fd)
+{
+	char	*buffer;
+	static char	*str;
 
+	buffer = malloc(BUFFER_SIZE + 1);
+	//buffer = read(fd, buffer, BUFFER_SIZE);
+	str = "";
+	while (!check_line(str))
+	{
+		read(fd, buffer, BUFFER_SIZE);
+		str = ft_strjoin(str, buffer);
+		//printf("buffer = %s\n", buffer);
+		//printf("str = %s\n", str);
+	}
+	return (str);
+}
 
+int	check_line(char *s)
+{
+	while (*s)
+	{
+		if (*s == '\n' )
+			return (1);
+		s++;
+	}
+	return (0);
 
+}
 
 
 

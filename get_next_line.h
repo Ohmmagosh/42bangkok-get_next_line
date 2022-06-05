@@ -6,7 +6,7 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:39 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/06/04 19:01:46 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/06 01:27:58 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,17 @@
 #ifndef BUFFER_SIZE 
 #define BUFFER_SIZE 1
 #endif
-
+/*
 typedef struct s_line
 {
-	char	*buffer;
-	char	*buff1;
-	int	fd;
-	int	start;
-	int	last;
+
 }	t_line;
-
+*/
 char	*get_next_line(int fd);
-
+int     check_line(char *s);
+char    *ft_strjoin(char const *s1, char const *s2);
+size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t  ft_strlen(const char *s);
 
 
 #endif
