@@ -6,7 +6,7 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:10 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/06/05 03:14:41 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/05 15:05:10 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return ((char *)str1);
 }
 
-char	 *get_next_line(int fd)
+/*char	 *get_next_line(int fd)
 {
 	t_line	test;
 	int	i;
@@ -67,4 +67,17 @@ char	 *get_next_line(int fd)
 		i++;
 	}
 	return ("hello welcome");
-}	
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
