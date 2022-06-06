@@ -6,11 +6,45 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:10 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/06/06 01:21:22 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/07 02:44:26 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+char	*ret_str(char *s)
+{
+	char	*str;
+
+	str = malloc(sizeof(char) * (ft_strlen_nl(s) + 2));
+	while (*s != '\n' && *s != '\0')
+		*str++ = *s++;
+	*(str+ 1) = '\n';
+	*(str + 2) = '\0';
+	str -= ft_stelen_nl(s);
+	return (str);
+}
+
+size_t	ft_strlen_nl(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (*s != '\n' && *s != '\0')
+		i++;
+	return (i);
+}
+
+int     check_line(char *s)
+{
+        while (*s)
+        {
+                if (*s == '\n' )
+                        return (1);
+                s++;
+        }
+        return (0);
+
+}
 
 size_t	ft_strlen(const char *s)
 {
@@ -96,24 +130,3 @@ char	*get_next_line(int fd)
 	}
 	return (str);
 }
-
-int	check_line(char *s)
-{
-	while (*s)
-	{
-		if (*s == '\n' )
-			return (1);
-		s++;
-	}
-	return (0);
-
-}
-
-
-
-
-
-
-
-
-
