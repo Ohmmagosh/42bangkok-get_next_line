@@ -6,32 +6,48 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:10 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/06/07 02:44:26 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/08 04:00:06 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-char	*ret_str(char *s)
-{
-	char	*str;
 
-	str = malloc(sizeof(char) * (ft_strlen_nl(s) + 2));
-	while (*s != '\n' && *s != '\0')
-		*str++ = *s++;
-	*(str+ 1) = '\n';
-	*(str + 2) = '\0';
-	str -= ft_stelen_nl(s);
-	return (str);
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
-size_t	ft_strlen_nl(char *s)
+size_t	ft_len_nl(char *s)
 {
 	int	i;
 
 	i = 0;
 	while (*s != '\n' && *s != '\0')
+	{
+		s++;
 		i++;
+	}
 	return (i);
+}
+
+char	*ret_str(char *s)
+{
+	char	*str;
+	size_t	i;
+
+	i = ft_len_nl(s);
+	str = malloc(sizeof(char) * (i + 2));
+	while (*s != '\n' && *s != '\0')
+		*str++ = *s++;
+	*(str+ 1) = '\n';
+	*(str + 2) = '\0';
+	str -= i;
+	return (str);
 }
 
 int     check_line(char *s)
@@ -44,16 +60,6 @@ int     check_line(char *s)
         }
         return (0);
 
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
@@ -117,6 +123,7 @@ char	*get_next_line(int fd)
 {
 	char	*buffer;
 	static char	*str;
+	char	*ret;
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	//buffer = read(fd, buffer, BUFFER_SIZE);
@@ -125,8 +132,11 @@ char	*get_next_line(int fd)
 	{
 		read(fd, buffer, BUFFER_SIZE);
 		str = ft_strjoin(str, buffer);
-		//printf("buffer = %s\n", buffer);
-		//printf("str = %s\n", str);
+		ret = ret_str(str);	
 	}
-	return (str);
+	for (int i = 0; i < ft_strlen(ret); i++)
+	{
+		printf("%d %c\n",ret[i], ret[i]);
+	}
+	return (ret);
 }
