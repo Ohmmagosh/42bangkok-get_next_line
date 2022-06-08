@@ -6,7 +6,7 @@
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:39:10 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/06/08 04:00:06 by psuanpro         ###   ########.fr       */
+/*   Updated: 2022/06/08 16:12:46 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,25 @@ size_t	ft_len_nl(char *s)
 char	*ret_str(char *s)
 {
 	char	*str;
+	size_t	len;
 	size_t	i;
 
-	i = ft_len_nl(s);
-	str = malloc(sizeof(char) * (i + 2));
-	while (*s != '\n' && *s != '\0')
+	i = 0;
+	len = ft_len_nl(s);
+	str = malloc(sizeof(char) * (len + 2));
+	while (i < len && *(s + i) != '\n' && *(s + i) != '\0')
+	{
+		*(str + i) = *(s + i);
+		i++;
+	}
+	*(str + i) = '\n';
+	*(str + i + 1) = '\0';
+	/*while (*s != '\n' && *s != '\0')
 		*str++ = *s++;
 	*(str+ 1) = '\n';
 	*(str + 2) = '\0';
-	str -= i;
+	str -= len;
+	*/
 	return (str);
 }
 
@@ -134,9 +144,9 @@ char	*get_next_line(int fd)
 		str = ft_strjoin(str, buffer);
 		ret = ret_str(str);	
 	}
-	for (int i = 0; i < ft_strlen(ret); i++)
+	/*for (int i = 0; i < ft_strlen(ret); i++)
 	{
 		printf("%d %c\n",ret[i], ret[i]);
-	}
+	}*/
 	return (ret);
 }
