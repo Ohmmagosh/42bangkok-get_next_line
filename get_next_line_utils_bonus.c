@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psuanpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 03:36:38 by psuanpro          #+#    #+#             */
-/*   Updated: 2022/06/20 03:49:10 by psuanpro         ###   ########.fr       */
+/*   Created: 2022/06/20 04:04:19 by psuanpro          #+#    #+#             */
+/*   Updated: 2022/06/20 04:04:37 by psuanpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_len_nl(char *s)
 {
